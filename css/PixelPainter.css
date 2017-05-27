@@ -1,0 +1,10 @@
+#ppcanvas {
+  width: 100px;
+  height: 100px;
+}
+
+.pixel {
+  width: 10px;
+  height: 10px;
+  float: left;
+}
