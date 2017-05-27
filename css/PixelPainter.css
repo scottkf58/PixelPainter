@@ -1,5 +1,5 @@
 #ppcanvas {
-  width: 100px;
+  width: 110px;
   height: 100px;
 }
 
@@ -7,4 +7,5 @@
   width: 10px;
   height: 10px;
   float: left;
+  border: .5px solid;
 }

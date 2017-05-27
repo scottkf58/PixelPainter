@@ -9,11 +9,11 @@
   // makePixel();
 
   function makeCanvas(num){
-    for (var i = 0; i <= num; i++){
+    for (var i = 0; i < num; i++){
       makePixel();
     }
   }
-  makeCanvas(1000);
+  makeCanvas(100);
 
 
 // return {
