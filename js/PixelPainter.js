@@ -3,6 +3,7 @@ function pixelPainter(){
   var ppcanvas = document.querySelector("#ppcanvas");
   var preColor;
   var currColor;
+  var coloredPix = [];
   var colorArr = ["red", "blue", "yellow", "green", "black", "orange", "purple", "brown", "gray", "salmon"];
 
   function makePixel(elClassName, target){
@@ -12,6 +13,7 @@ function pixelPainter(){
     //   this.style.backgroundColor = "black";
     // });
     target.appendChild(pixel);
+    coloredPix.push();
     return pixel;
   }
 
@@ -73,8 +75,8 @@ function pixelPainter(){
   var erase = document.createElement("button");
   erase.innerHTML = "erase";
   erase.addEventListener("click", function(){
-      currColor = "white";
-      this.style.backgroundColor = "white";
+      currColor = "";
+      this.style.backgroundColor = "";
       console.log("erase");
     });
   ppcanvas.appendChild(erase);
