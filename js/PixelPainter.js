@@ -1,8 +1,11 @@
 function pixelPainter(){
   var ppcolors = document.querySelector("#ppcolors");
   var ppcanvas = document.querySelector("#ppcanvas");
-  var saveColor = "";
-  var colorArr = ["red", "blue", "yellow", "green", "black", "orange", "purple"];
+  var something = document.querySelector(".pixel");
+
+  var preColor = "black";
+  var currColor;
+  var colorArr = ["red", "blue", "yellow", "green", "black", "orange", "purple", "brown", "gray", "salmon"];
 
 
   function makePixel(elClassName, target){
@@ -18,10 +21,12 @@ function pixelPainter(){
   function makeCanvas(w, h){
     var num = w * h;
     for (var i = 0; i < num; i++){
-      makePixel("pixel", ppcanvas);
+      var pixel = makePixel("pixel", ppcanvas);
       if (i % w === w-1){
         ppcanvas.appendChild(document.createElement("br"));
       }
+      pixel.addEventListener("click", paintColor);
+
 
     }
   }
@@ -35,16 +40,32 @@ function pixelPainter(){
       if (i % w === w-1){
         ppcolors.appendChild(document.createElement("br"));
       }
+      pixel.addEventListener("click", setColor);
       pixel.style.backgroundColor = colorArr[i];
-
     }
 
   }
 
-  function setColor(color) {
-    this.style.backgroundColor = color;
+  function setColor(){
+    preColor = this.style.backgroundColor;
+    currColor = preColor;
+    console.log(currColor);
   }
-  // var colorCanvas = makeCanvas();
+
+ function paintColor(){
+    this.style.backgroundColor = currColor;
+    console.log(currColor);
+  }
+
+
+
+
+
+// pixel.addEventListener("click", function(){
+//         this.style.backgroundColor = "black";
+
+//       });
+
   makeColorSwatch(2, 5);
   makeCanvas(30, 30);
 
@@ -66,7 +87,7 @@ function pixelPainter(){
 
   makePixel : makePixel,
   makeCanvas : makeCanvas,
-  // setColor : setColor,
+  setColor : setColor,
   makeColorSwatch : makeColorSwatch
 
   };
