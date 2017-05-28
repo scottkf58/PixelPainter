@@ -1,11 +1,11 @@
-#ppcanvas {
-  width: 110px;
+/*#ppcanvas {
+  width: 100px;
   height: 100px;
-}
+}*/
 
 .pixel {
   width: 10px;
   height: 10px;
-  float: left;
+  display: inline-block;
   border: .25px solid;
 }

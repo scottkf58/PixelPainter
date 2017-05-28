@@ -4,12 +4,21 @@ function pixelPainter(){
   function makePixel(){
     var pixel = document.createElement("div");
     pixel.className = "pixel";
+    pixel.addEventListener("click", function(){
+      this.style.backgroundColor = "black";
+    });
     ppcanvas.appendChild(pixel);
   }
 
-  function makeCanvas(num){
+  function makeCanvas(w, h){
+    var num = w * h;
     for (var i = 0; i < num; i++){
       makePixel();
+      if (i % 10 === 9){
+        console.log(i);
+        ppcanvas.appendChild(document.createElement("br"));
+      }
+
     }
   }
 
@@ -21,24 +30,24 @@ function pixelPainter(){
     setColor();
   }
 
-  var canvas = makeCanvas(100);
+  var canvas = makeCanvas(10, 10);
 
-  // pixel.addEventListener("click", test.setColor("black"));
+  // document.body.addEventListener("click", test.setColor("black"));
 
 
-  // function clearCanvas() {
-  // var blkOut = document.querySelectorAll(".pixel");
-  // //for (var i = 0; i < whiteOut.length; i++){
-  // blkOut.style.backgroundColor = "black";
-  // console.log(blkOut);
-  // }
+  function clearCanvas() {
+  var blkOut = document.querySelectorAll(".pixel");
+  //for (var i = 0; i < whiteOut.length; i++){
+  blkOut.style.backgroundColor = "black";
+  console.log(blkOut);
+  }
 
-  // var clear = document.createElement("button");
-  // clear.innerHTML = "clear";
-  // clear.addEventListener("click", function(){
-  //   clearCanvas();
-  // });
-  // ppcanvas.appendChild(clear);
+  var clear = document.createElement("button");
+  clear.innerHTML = "clear";
+  clear.addEventListener("click", function(){
+    clearCanvas();
+  });
+  ppcanvas.appendChild(clear);
 
   return {
 
@@ -49,10 +58,8 @@ function pixelPainter(){
   };
 }
 
-var test = pixelPainter();
-// test.clearCanvas();
+var paint = pixelPainter();
 
-var pixel = document.querySelectorAll(".pixel");
-pixel.addEventListener("click", test.setColor("black"));
+
 
 
