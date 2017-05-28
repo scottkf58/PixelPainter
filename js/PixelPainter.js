@@ -76,12 +76,15 @@ function pixelPainter(){
   // console.log(blkOut);
   // }
 
-  // var clear = document.createElement("button");
-  // clear.innerHTML = "clear";
-  // clear.addEventListener("click", function(){
-  //   clearCanvas();
-  // });
-  // ppcanvas.appendChild(clear);
+  var erase = document.createElement("button");
+  erase.innerHTML = "erase";
+  erase.addEventListener("click", function(){
+      currColor = "white";
+      this.style.backgroundColor = "white";
+      console.log("erase");
+    });
+
+  ppcanvas.appendChild(erase);
 
   return {
 
