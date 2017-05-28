@@ -1,5 +1,7 @@
 function pixelPainter(){
   var saveColor = "";
+  var colorArr = ["red", "blue", "yellow", "green", "black", "orange", "purple"];
+
 
   function makePixel(){
     var pixel = document.createElement("div");
@@ -14,30 +16,30 @@ function pixelPainter(){
     var num = w * h;
     for (var i = 0; i < num; i++){
       makePixel();
-      if (i % 10 === 9){
-        console.log(i);
+      if (i % w === w-1){
         ppcanvas.appendChild(document.createElement("br"));
       }
 
     }
   }
 
+  function colorSwatch(){
+    var colorSet = document.createElement("div");
+    colorSet.className = "colors";
+    var colorCanvas = makeCanvas(2, 5);
+    colorSet.appendChild(colorCanvas);
+
+  }
+
   function setColor(color) {
-    this.style.background = color;
+    this.style.backgroundColor = color;
   }
 
-  function erase() {
-    setColor();
-  }
-
-  var canvas = makeCanvas(10, 10);
-
-  // document.body.addEventListener("click", test.setColor("black"));
+  makeCanvas(30, 30);
 
 
   function clearCanvas() {
   var blkOut = document.querySelectorAll(".pixel");
-  //for (var i = 0; i < whiteOut.length; i++){
   blkOut.style.backgroundColor = "black";
   console.log(blkOut);
   }
@@ -53,7 +55,8 @@ function pixelPainter(){
 
   makePixel : makePixel,
   makeCanvas : makeCanvas,
-  setColor : setColor
+  setColor : setColor,
+  colorSwatch : colorSwatch
 
   };
 }
