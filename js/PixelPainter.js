@@ -1,12 +1,9 @@
 function pixelPainter(){
   var ppcolors = document.querySelector("#ppcolors");
   var ppcanvas = document.querySelector("#ppcanvas");
-  var something = document.querySelector(".pixel");
-
-  var preColor = "black";
+  var preColor;
   var currColor;
   var colorArr = ["red", "blue", "yellow", "green", "black", "orange", "purple", "brown", "gray", "salmon"];
-
 
   function makePixel(elClassName, target){
     var pixel = document.createElement("div");
@@ -27,7 +24,6 @@ function pixelPainter(){
       }
       pixel.addEventListener("click", paintColor);
 
-
     }
   }
 
@@ -43,7 +39,6 @@ function pixelPainter(){
       pixel.addEventListener("click", setColor);
       pixel.style.backgroundColor = colorArr[i];
     }
-
   }
 
   function setColor(){
@@ -57,24 +52,23 @@ function pixelPainter(){
     console.log(currColor);
   }
 
-
-
-
-
-// pixel.addEventListener("click", function(){
-//         this.style.backgroundColor = "black";
-
-//       });
-
   makeColorSwatch(2, 5);
   makeCanvas(30, 30);
 
+  function clearCanvas() {
+    var pixels = document.querySelectorAll(".pixel");
+    for (var i = 0; i < pixels.length; i++){
+      var pixel = pixels[i];
+      if (pixel.style.backgroundColor !== ""){
+       pixel.style.backgroundColor = "";
+    }
+  }
+  }
 
-  // function clearCanvas() {
-  // var blkOut = document.querySelectorAll(".pixel");
-  // blkOut.style.backgroundColor = "black";
-  // console.log(blkOut);
-  // }
+  var clear = document.createElement("button");
+  clear.innerHTML = "clear";
+  clear.addEventListener("click", clearCanvas);
+  ppcanvas.appendChild(clear);
 
   var erase = document.createElement("button");
   erase.innerHTML = "erase";
@@ -83,7 +77,6 @@ function pixelPainter(){
       this.style.backgroundColor = "white";
       console.log("erase");
     });
-
   ppcanvas.appendChild(erase);
 
   return {
@@ -91,7 +84,8 @@ function pixelPainter(){
   makePixel : makePixel,
   makeCanvas : makeCanvas,
   setColor : setColor,
-  makeColorSwatch : makeColorSwatch
+  makeColorSwatch : makeColorSwatch,
+  clearCanvas : clearCanvas
 
   };
 }
