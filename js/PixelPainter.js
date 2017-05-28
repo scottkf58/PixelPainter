@@ -8,10 +8,11 @@ function pixelPainter(){
   function makePixel(elClassName, target){
     var pixel = document.createElement("div");
     pixel.className = elClassName;
-    pixel.addEventListener("click", function(){
-      this.style.backgroundColor = "black";
-    });
+    // pixel.addEventListener("click", function(){
+    //   this.style.backgroundColor = "black";
+    // });
     target.appendChild(pixel);
+    return pixel;
   }
 
   function makeCanvas(w, h){
@@ -30,10 +31,11 @@ function pixelPainter(){
     // ppcolors.appendChild(colorCanvas);
     var num = w * h;
     for (var i = 0; i < num; i++){
-      makePixel("colors", ppcolors);
+      var pixel = makePixel("colors", ppcolors);
       if (i % w === w-1){
         ppcolors.appendChild(document.createElement("br"));
       }
+      pixel.style.backgroundColor = colorArr[i];
 
     }
 
@@ -43,8 +45,8 @@ function pixelPainter(){
     this.style.backgroundColor = color;
   }
   // var colorCanvas = makeCanvas();
-  makeColorSwatch(2, 10);
-  makeCanvas(10, 10);
+  makeColorSwatch(2, 5);
+  makeCanvas(30, 30);
 
 
   // function clearCanvas() {
