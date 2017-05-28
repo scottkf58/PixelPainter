@@ -1,4 +1,5 @@
-// function pixelPainter(){ //paint module
+function pixelPainter(){
+  var saveColor = "";
 
   function makePixel(){
     var pixel = document.createElement("div");
@@ -6,20 +7,52 @@
     ppcanvas.appendChild(pixel);
   }
 
-  // makePixel();
-
   function makeCanvas(num){
     for (var i = 0; i < num; i++){
       makePixel();
     }
   }
-  makeCanvas(100);
+
+  function setColor(color) {
+    this.style.background = color;
+  }
+
+  function erase() {
+    setColor();
+  }
+
+  var canvas = makeCanvas(100);
+
+  // pixel.addEventListener("click", test.setColor("black"));
 
 
-// return {
+  // function clearCanvas() {
+  // var blkOut = document.querySelectorAll(".pixel");
+  // //for (var i = 0; i < whiteOut.length; i++){
+  // blkOut.style.backgroundColor = "black";
+  // console.log(blkOut);
+  // }
 
-//   makePixel : makePixel
+  // var clear = document.createElement("button");
+  // clear.innerHTML = "clear";
+  // clear.addEventListener("click", function(){
+  //   clearCanvas();
+  // });
+  // ppcanvas.appendChild(clear);
 
-// };
+  return {
 
-// }
+  makePixel : makePixel,
+  makeCanvas : makeCanvas,
+  setColor : setColor
+
+  };
+}
+
+var test = pixelPainter();
+// test.clearCanvas();
+
+var pixel = document.querySelectorAll(".pixel");
+pixel.addEventListener("click", test.setColor("black"));
+
+
