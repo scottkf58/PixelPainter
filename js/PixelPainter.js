@@ -66,7 +66,6 @@ function pixelPainter(){
 // Saves the painted canvas
   function saveCanvas(){
     var getPixels = document.querySelectorAll(".pixel");
-    var pixelCount = 0;
     var savePixels = document.createElement("div");
 
     for(var x = 0; x < 30; x++){
@@ -75,8 +74,7 @@ function pixelPainter(){
       for(var y = 0; y < 30; y++){
         var onePixel = document.createElement('div');
         onePixel.className = "onePixel";
-        onePixel.style.backgroundColor = getPixels[pixelCount].style.backgroundColor;
-        pixelCount++;
+        onePixel.style.backgroundColor = getPixels.style.backgroundColor;
         row.appendChild(onePixel);
       }
       savePixels.appendChild(row);
