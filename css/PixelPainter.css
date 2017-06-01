@@ -1,15 +1,57 @@
+h1 {
+  font-family: 'Lato', sans-serif;
+}
+
+#pixelPainter {
+  background: url(https://s-media-cache-ak0.pinimg.com/736x/ae/01/87/ae0187e9049aa63c0a9e0a0953e14e98.jpg) center center no-repeat;
+  background-size: 900px 900px;
+  display: flex;
+  flex-direction: row;
+  max-width: 1440px;
+  min-width: 1440px;
+  padding: 100px;
+}
+
+#ppcanvas {
+  margin: auto;
+  width: 100%;
+  position: relative;
+  left: 392px;
+
+}
+
+#ppcolors {
+  vertical-align: top;
+  width: 25%;
+
+}
+
 .pixel {
   width: 20px;
   height: 20px;
   display: inline-block;
-  border: .25px solid;
+  border: .25px dotted gray;
 }
 
 .colors {
-  width: 40px;
-  height: 40px;
-  display: inline-block;
+  width: 30px;
+  height: 30px;
   border: .25px solid;
+  display: inline-block;
 }
 
+
+button {
+  color: black;
+  background-color: ffffff;
+  border: 2px solid black;
+  font-size: 24px;
+
+}
+
+button:hover {
+    background-color: ff0000;
+    color: white;
+}
+...
 

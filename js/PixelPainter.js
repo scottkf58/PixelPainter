@@ -27,6 +27,7 @@ function pixelPainter(){
     }
   }
 
+
 // Creates a color palette of colors to choose from
   function makeColorSwatch(w, h){
     var num = w * h;
