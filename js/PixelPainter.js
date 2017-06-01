@@ -6,7 +6,7 @@ function pixelPainter(){
   var ppcanvas = document.querySelector("#ppcanvas");
   var colorArr = ["red", "blue", "yellow", "green", "black", "orange", "purple", "brown", "gray", "salmon"];
 
-  // Generates each pixel
+// Generates each pixel
   function makePixel(elClassName, target){
     var pixel = document.createElement("div");
     pixel.className = elClassName;
@@ -56,8 +56,52 @@ function pixelPainter(){
   makeColorSwatch(5, 2);
   makeCanvas(30, 30);
 
+// Creates button to save the painted canvas
+  var save = document.createElement("button");
+  save.id = "save";
+  save.innerHTML = "save";
+  save.addEventListener("click", saveCanvas);
+  ppcolors.appendChild(save);
+
+// Saves the painted canvas
+  function saveCanvas(){
+    var getPixels = document.querySelectorAll(".pixel");
+    var pixelCount = 0;
+    var savePixels = document.createElement("div");
+
+    for(var x = 0; x < 30; x++){
+      var row = document.createElement('div');
+      row.className = "row";
+      for(var y = 0; y < 30; y++){
+        var onePixel = document.createElement('div');
+        onePixel.className = "onePixel";
+        onePixel.style.backgroundColor = getPixels[pixelCount].style.backgroundColor;
+        pixelCount++;
+        row.appendChild(onePixel);
+      }
+      savePixels.appendChild(row);
+    }
+  }
+
+// Creates button to load the saved canvas
+  var load = document.createElement("button");
+  load.id = "load";
+  load.innerHTML = "load";
+  load.addEventListener("click", loadCanvas);
+  ppcolors.appendChild(load);
+
+// Loads the saved canvas
+  function loadCanvas(){
+    var displayCanvas = document.querySelectorAll("onePixel");
+    var savedCanvas = savePixels.querySelectorAll("onePixel");
+    for(var i = 0; i < displayCanvas.length; i++){
+      displayCanvas[i].style.backgroundColor = savedCanvas[i].style.backgroundColor;
+    }
+
+  }
+
 // Creates button to clear the entire canvas
-var clear = document.createElement("button");
+  var clear = document.createElement("button");
   clear.id = "clear";
   clear.innerHTML = "clear";
   clear.addEventListener("click", clearCanvas);
@@ -91,7 +135,9 @@ var clear = document.createElement("button");
   makeCanvas : makeCanvas,
   setColor : setColor,
   makeColorSwatch : makeColorSwatch,
-  clearCanvas : clearCanvas
+  clearCanvas : clearCanvas,
+  saveCanvas : saveCanvas,
+  loadCanvas : loadCanvas
 
   };
 }
