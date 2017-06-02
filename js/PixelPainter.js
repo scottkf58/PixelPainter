@@ -59,6 +59,7 @@ function pixelPainter(){
 // Creates button to save the painted canvas
   var save = document.createElement("button");
   save.id = "save";
+  save.className = "button";
   save.innerHTML = "save";
   save.addEventListener("click", saveCanvas);
   ppcolors.appendChild(save);
@@ -87,6 +88,7 @@ function pixelPainter(){
 // Creates button to load the saved canvas
   var load = document.createElement("button");
   load.id = "load";
+  load.className = "button";
   load.innerHTML = "load";
   load.addEventListener("click", loadCanvas);
   ppcolors.appendChild(load);
@@ -103,6 +105,7 @@ function pixelPainter(){
 // Creates button to clear the entire canvas
   var clear = document.createElement("button");
   clear.id = "clear";
+  clear.className = "button";
   clear.innerHTML = "clear";
   clear.addEventListener("click", clearCanvas);
   ppcolors.appendChild(clear);
@@ -121,6 +124,7 @@ function pixelPainter(){
 // Creates button to erase selected pixel
   var erase = document.createElement("button");
   erase.id = "erase";
+  erase.className = "button";
   erase.innerHTML = "erase";
   erase.addEventListener("click", function(){
       currColor = "";
