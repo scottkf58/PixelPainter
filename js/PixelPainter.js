@@ -48,7 +48,7 @@ function pixelPainter(){
   }
 
 // Paints pixel
- function paintColor(){
+  function paintColor(){
     this.style.backgroundColor = currColor;
     console.log(currColor);
   }
@@ -66,18 +66,21 @@ function pixelPainter(){
 // Saves the painted canvas
   function saveCanvas(){
     var getPixels = document.querySelectorAll(".pixel");
-    var savePixels = document.createElement("div");
+    var pixelCount = 0;
+    savePixels = document.createElement("div");
 
     for(var x = 0; x < 30; x++){
       var row = document.createElement('div');
       row.className = "row";
       for(var y = 0; y < 30; y++){
-        var onePixel = document.createElement('div');
-        onePixel.className = "onePixel";
-        onePixel.style.backgroundColor = getPixels.style.backgroundColor;
-        row.appendChild(onePixel);
+        var pixel = document.createElement('div');
+        pixel.className = "pixel";
+        pixel.style.backgroundColor = getPixels[pixelCount].style.backgroundColor;
+        pixelCount++;
+        row.appendChild(pixel);
       }
       savePixels.appendChild(row);
+      console.log(savePixels);
     }
   }
 
@@ -90,12 +93,11 @@ function pixelPainter(){
 
 // Loads the saved canvas
   function loadCanvas(){
-    var displayCanvas = document.querySelectorAll("onePixel");
-    var savedCanvas = savePixels.querySelectorAll("onePixel");
+    var displayCanvas = document.querySelectorAll(".pixel");
+    var savedCanvas = savePixels.querySelectorAll(".pixel");
     for(var i = 0; i < displayCanvas.length; i++){
       displayCanvas[i].style.backgroundColor = savedCanvas[i].style.backgroundColor;
     }
-
   }
 
 // Creates button to clear the entire canvas
